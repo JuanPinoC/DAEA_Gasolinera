@@ -1,0 +1,15 @@
+D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\Gasolinera 2.0\Gasolinera\BLL\bin\Debug\BLL.dll
+D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\Gasolinera 2.0\Gasolinera\BLL\bin\Debug\BLL.pdb
+D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\Gasolinera 2.0\Gasolinera\BLL\bin\Debug\DAL.dll
+D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\Gasolinera 2.0\Gasolinera\BLL\bin\Debug\Entities.dll
+D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\Gasolinera 2.0\Gasolinera\BLL\bin\Debug\EntityFramework.dll
+D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\Gasolinera 2.0\Gasolinera\BLL\bin\Debug\DAL.pdb
+D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\Gasolinera 2.0\Gasolinera\BLL\bin\Debug\DAL.dll.config
+D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\Gasolinera 2.0\Gasolinera\BLL\bin\Debug\Entities.pdb
+D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\Gasolinera 2.0\Gasolinera\BLL\bin\Debug\Entities.dll.config
+D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\Gasolinera 2.0\Gasolinera\BLL\bin\Debug\EntityFramework.xml
+D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\Gasolinera 2.0\Gasolinera\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\Gasolinera 2.0\Gasolinera\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\Gasolinera 2.0\Gasolinera\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\Gasolinera 2.0\Gasolinera\BLL\obj\Debug\BLL.dll
+D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\Gasolinera 2.0\Gasolinera\BLL\obj\Debug\BLL.pdb

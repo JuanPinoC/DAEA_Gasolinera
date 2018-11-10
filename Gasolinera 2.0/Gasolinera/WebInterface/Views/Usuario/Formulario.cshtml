@@ -1,0 +1,98 @@
+﻿@model Entities.CUsuario
+
+@{
+    <!-- verificacion POST-->
+
+    if (IsPost)
+    {
+        string companyname = Request.Form["companyname"];
+        string contactname = Request.Form["contactname"];
+        int employeecount = Request.Form["employees"].AsInt();
+   
+    }
+    <!-- configuracion inicial -->
+
+    ViewBag.Title = "Formulario";
+
+    string tipoFormulario = (Model == null) ? "Crear" : "Editar";
+
+    List<SelectListItem> tiposUsuario = new List<SelectListItem>();
+    tiposUsuario.Add(new SelectListItem
+    {
+        Text = "Administrador",
+        Value = "ADMIN"
+    });
+    tiposUsuario.Add(new SelectListItem
+    {
+        Text = "Empleado",
+        Value = "EMPLOYEE",
+        Selected = true
+    });
+}
+
+<h2> @tipoFormulario Usuario </h2>
+
+@using (Html.BeginForm())
+{
+        <div class="row">
+            <div class="col-md-2">
+                <label>
+                    DNI
+                </label>
+            </div>
+            <div class="col-md-2">
+                <label>
+                    @Html.TextBoxFor(model => model.dni)
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label>
+                    Apellidos y Nombres
+                </label>
+            </div>
+            <div class="col-md-2">
+                <label>
+                    @Html.TextBoxFor(model => model.nom_ape)
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label>
+                    Tipo de usuario
+                </label>
+            </div>
+            <div class="col-md-2">
+                <label>
+                    @Html.DropDownListFor(model => model.tipo, tiposUsuario)
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label>
+                    Nickname
+                </label>
+            </div>
+            <div class="col-md-2">
+                <label>
+                    @Html.TextBoxFor(model => model.nickname)
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <label>
+                    Password
+                </label>
+            </div>
+            <div class="col-md-2">
+                <label>
+                    @Html.TextBoxFor(model => model.password)
+                </label>
+            </div>
+        </div>
+}
+
