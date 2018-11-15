@@ -13,3 +13,18 @@ D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\Gasoliner
 D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\Gasolinera 2.0\Gasolinera\BLL\obj\Debug\BLL.csproj.CopyComplete
 D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\Gasolinera 2.0\Gasolinera\BLL\obj\Debug\BLL.dll
 D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\Gasolinera 2.0\Gasolinera\BLL\obj\Debug\BLL.pdb
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\BLL\bin\Debug\BLL.dll
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\BLL\bin\Debug\BLL.pdb
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\BLL\bin\Debug\DAL.dll
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\BLL\bin\Debug\Entities.dll
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\BLL\bin\Debug\EntityFramework.dll
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\BLL\bin\Debug\DAL.pdb
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\BLL\bin\Debug\DAL.dll.config
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\BLL\bin\Debug\Entities.pdb
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\BLL\bin\Debug\Entities.dll.config
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\BLL\bin\Debug\EntityFramework.xml
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\BLL\obj\Debug\BLL.csproj.CopyComplete
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\BLL\obj\Debug\BLL.dll
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\BLL\obj\Debug\BLL.pdb

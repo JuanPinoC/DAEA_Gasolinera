@@ -13,3 +13,18 @@ D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\Gasoliner
 D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\Gasolinera 2.0\Gasolinera\DAL\obj\Debug\DAL.csproj.CopyComplete
 D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\Gasolinera 2.0\Gasolinera\DAL\obj\Debug\DAL.dll
 D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\Gasolinera 2.0\Gasolinera\DAL\obj\Debug\DAL.pdb
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\DAL\bin\Debug\DAL.dll.config
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\DAL\bin\Debug\DAL.dll
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\DAL\bin\Debug\DAL.pdb
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\DAL\bin\Debug\Entities.dll
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\DAL\bin\Debug\EntityFramework.dll
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\DAL\bin\Debug\EntityFramework.SqlServer.dll
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\DAL\bin\Debug\Entities.pdb
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\DAL\bin\Debug\Entities.dll.config
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\DAL\bin\Debug\EntityFramework.xml
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\DAL\bin\Debug\EntityFramework.SqlServer.xml
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\DAL\obj\Debug\DAL.csproj.CopyComplete
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\DAL\obj\Debug\DAL.dll
+F:\PROYECTOS\DAEA\DAEA_Gasolinera\Gasolinera 2.0\Gasolinera\DAL\obj\Debug\DAL.pdb

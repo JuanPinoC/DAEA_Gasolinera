@@ -144,6 +144,12 @@
     <Content Include="Views\Venta\Index.cshtml" />
     <Content Include="Views\Venta\Listado.cshtml" />
     <Content Include="Views\Venta\Formulario.cshtml" />
+    <Content Include="Views\Boleta\Formulario.cshtml" />
+    <Content Include="Views\Boleta\Index.cshtml" />
+    <Content Include="Views\Boleta\Listado.cshtml" />
+    <Content Include="Views\Factura\Listado.cshtml" />
+    <Content Include="Views\Factura\Formulario.cshtml" />
+    <Content Include="Views\Factura\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
