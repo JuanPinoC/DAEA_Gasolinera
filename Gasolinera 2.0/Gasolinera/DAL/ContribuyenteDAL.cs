@@ -31,6 +31,20 @@ namespace DAL
             }
         }
 
+        public List<CContribuyente> ListaModal()
+        {
+            using (context)
+            {
+                var query = context.Contribuyente.Select(c => new CContribuyente
+                {
+                    codigo = c.codigo,
+                    empresa = c.empresa,
+                    ruc = c.ruc
+                });
+                return query.ToList();
+            }
+        }
+
         public CContribuyente Get(int codigo)
         {
             var query = context.Contribuyente.Select(c => new CContribuyente

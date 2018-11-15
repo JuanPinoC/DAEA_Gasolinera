@@ -8,13 +8,18 @@ using DAL;
 
 namespace BLL
 {
-    class ProductoBLL
+    public class ProductoBLL
     {
         ProductoDAL pro = new ProductoDAL();
 
         public List<CProducto> ListarBLL()
         {
             return pro.Listar();
+        }
+
+        public List<CProducto> ListaModalBLL()
+        {
+            return pro.ListaModal();
         }
 
         public CProducto GetBLL(int codigo)

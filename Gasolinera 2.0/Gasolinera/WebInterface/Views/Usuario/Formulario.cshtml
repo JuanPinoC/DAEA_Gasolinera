@@ -1,15 +1,6 @@
 ﻿@model Entities.CUsuario
 
 @{
-    <!-- verificacion POST-->
-
-    if (IsPost)
-    {
-        string companyname = Request.Form["companyname"];
-        string contactname = Request.Form["contactname"];
-        int employeecount = Request.Form["employees"].AsInt();
-   
-    }
     <!-- configuracion inicial -->
 
     ViewBag.Title = "Formulario";
@@ -32,67 +23,78 @@
 
 <h2> @tipoFormulario Usuario </h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm((tipoFormulario.Equals("Crear"))?"Crear":"Editar", "Usuario", FormMethod.Post))
 {
-        <div class="row">
-            <div class="col-md-2">
-                <label>
-                    DNI
-                </label>
-            </div>
-            <div class="col-md-2">
-                <label>
-                    @Html.TextBoxFor(model => model.dni)
-                </label>
-            </div>
+    @Html.HiddenFor(model => model.codigo)
+    <div class="row">
+        <div class="col-md-2">
+            <label>
+                DNI
+            </label>
         </div>
-        <div class="row">
-            <div class="col-md-2">
-                <label>
-                    Apellidos y Nombres
-                </label>
-            </div>
-            <div class="col-md-2">
-                <label>
-                    @Html.TextBoxFor(model => model.nom_ape)
-                </label>
-            </div>
+        <div class="col-md-2">
+            <label>
+                @Html.TextBoxFor(model => model.dni)
+            </label>
         </div>
-        <div class="row">
-            <div class="col-md-2">
-                <label>
-                    Tipo de usuario
-                </label>
-            </div>
-            <div class="col-md-2">
-                <label>
-                    @Html.DropDownListFor(model => model.tipo, tiposUsuario)
-                </label>
-            </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label>
+                Apellidos y Nombres
+            </label>
         </div>
-        <div class="row">
-            <div class="col-md-2">
-                <label>
-                    Nickname
-                </label>
-            </div>
-            <div class="col-md-2">
-                <label>
-                    @Html.TextBoxFor(model => model.nickname)
-                </label>
-            </div>
+        <div class="col-md-2">
+            <label>
+                @Html.TextBoxFor(model => model.nom_ape)
+            </label>
         </div>
-        <div class="row">
-            <div class="col-md-2">
-                <label>
-                    Password
-                </label>
-            </div>
-            <div class="col-md-2">
-                <label>
-                    @Html.TextBoxFor(model => model.password)
-                </label>
-            </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label>
+                Tipo de usuario
+            </label>
         </div>
+        <div class="col-md-2">
+            <label>
+                @Html.DropDownListFor(model => model.tipo, tiposUsuario)
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label>
+                Nickname
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label>
+                @Html.TextBoxFor(model => model.nickname)
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label>
+                Password
+            </label>
+        </div>
+        <div class="col-md-2">
+            <label>
+                @Html.TextBoxFor(model => model.password)
+            </label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-2">
+            <label>
+                <input type="submit" value="Aceptar" />
+            </label>
+        </div>
+    </div>
 }
 

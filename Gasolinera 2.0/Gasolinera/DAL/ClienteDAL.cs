@@ -27,6 +27,21 @@ namespace DAL
             }
         }
 
+        public List<CCliente> ListaModal()
+        {
+            using (context)
+            {
+                var query = context.Cliente.Select(c => new CCliente
+                {
+                    codigo = c.codigo,
+                    tipo_doc = c.tipo_doc,
+                    documento = c.documento,
+                    nom_ape = c.nom_ape
+                });
+                return query.ToList();
+            }
+        }
+
         public CCliente Get(int codigo)
         {
             var query = context.Cliente.Select(c => new CCliente

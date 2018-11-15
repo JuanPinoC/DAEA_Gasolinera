@@ -19,11 +19,16 @@ namespace WebInterface.Controllers
             return View();
         }
 
-        public ActionResult Listado()
+        public List<CUsuario> GetListado()
         {
             List<CUsuario> listado = BLLinstance.ListarBLL();
 
-            return View(listado);
+            return listado;
+        }
+
+        public ActionResult Listado()
+        {
+            return View(GetListado());
         }
 
         public ActionResult Formulario(int codigo)
@@ -40,22 +45,38 @@ namespace WebInterface.Controllers
             }
         }
 
-        public ActionResult Crear()
+        [HttpPost]
+        public ActionResult Crear(CUsuario usuario)
         {
-            //int success = BLLinstance.AgregarBLL("","","","","");
-            return Listado();
+            int success = BLLinstance.AgregarBLL(
+                usuario.dni, 
+                usuario.nom_ape, 
+                usuario.nickname, 
+                usuario.password, 
+                usuario.tipo);
+
+            return View("Listado",GetListado());
         }
 
-        public ActionResult Editar()
+        [HttpPost]
+        public ActionResult Editar(CUsuario usuario)
         {
-            //int success = BLLinstance.EditarBLL(1,"", "", "", "", "");
-            return Listado();
+            int success = BLLinstance.EditarBLL(
+                usuario.codigo,
+                usuario.dni,
+                usuario.nom_ape,
+                usuario.nickname,
+                usuario.password,
+                usuario.tipo);
+
+            return View("Listado",GetListado());
         }
 
         public ActionResult Eliminar(int codigo)
         {
-            BLLinstance.EliminarBLL(codigo);
-            return Listado();
+            int success = BLLinstance.EliminarBLL(codigo);
+            List<CUsuario> listado = BLLinstance.ListarBLL();
+            return View("Listado",GetListado());
         }
     }
 }

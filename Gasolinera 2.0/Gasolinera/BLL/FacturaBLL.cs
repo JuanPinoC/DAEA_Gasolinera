@@ -8,7 +8,7 @@ using DAL;
 
 namespace BLL
 {
-    class FacturaBLL
+    public class FacturaBLL
     {
         FacturaDAL fac = new FacturaDAL();
 

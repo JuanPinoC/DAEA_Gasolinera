@@ -8,13 +8,18 @@ using DAL;
 
 namespace BLL
 {
-    class ClienteBLL
+    public class ClienteBLL
     {
         ClienteDAL cli = new ClienteDAL();
 
         public List<CCliente> ListarBLL()
         {
             return cli.Listar();
+        }
+
+        public List<CCliente> ListaModalBLL()
+        {
+            return cli.ListaModal();
         }
 
         public CCliente GetBLL(int codigo)

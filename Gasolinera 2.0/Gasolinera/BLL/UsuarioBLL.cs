@@ -17,6 +17,11 @@ namespace BLL
             return usu.Listar();
         }
 
+        public List<CUsuario> ListaModalBLL()
+        {
+            return usu.ListaModal();
+        }
+
         public CUsuario GetBLL(int codigo)
         {
             return usu.Get(codigo);

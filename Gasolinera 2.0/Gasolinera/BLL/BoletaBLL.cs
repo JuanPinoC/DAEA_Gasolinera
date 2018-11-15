@@ -8,7 +8,7 @@ using DAL;
 
 namespace BLL
 {
-    class BoletaBLL
+    public class BoletaBLL
     {
         BoletaDAL bol = new BoletaDAL();
 

@@ -28,6 +28,20 @@ namespace DAL
             }
         }
 
+        public List<CUsuario> ListaModal()
+        {
+            using (context)
+            {
+                var query = context.Usuario.Select(u => new CUsuario
+                {
+                    codigo = u.codigo,
+                    dni = u.dni,
+                    nom_ape = u.nom_ape
+                });
+                return query.ToList();
+            }
+        }
+
         public CUsuario Get(int codigo)
         {
             var query = context.Usuario.Select(u => new CUsuario

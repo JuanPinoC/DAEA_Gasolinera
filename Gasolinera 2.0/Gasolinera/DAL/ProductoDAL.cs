@@ -27,6 +27,22 @@ namespace DAL
             }
         }
 
+        public List<CProducto> ListaModal()
+        {
+            using (context)
+            {
+                var query = context.Producto.Select(p => new CProducto
+                {
+                    codigo = p.codigo,
+                    nombre = p.nombre,
+                    precio = (float)p.precio.Value,
+                    cantidad = (float)p.cantidad.Value,
+                    medida = p.medida
+                });
+                return query.ToList();
+            }
+        }
+
         public CProducto Get(int codigo)
         {
             var query = context.Producto.Select(p => new CProducto

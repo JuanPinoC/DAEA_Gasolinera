@@ -8,13 +8,18 @@ using DAL;
 
 namespace BLL
 {
-    class ContribuyenteBLL
+    public class ContribuyenteBLL
     {
         ContribuyenteDAL con = new ContribuyenteDAL();
 
         public List<CContribuyente> ListarBLL()
         {
             return con.Listar();
+        }
+
+        public List<CContribuyente> ListaModalBLL()
+        {
+            return con.ListaModal();
         }
 
         public CContribuyente GetBLL(int codigo)

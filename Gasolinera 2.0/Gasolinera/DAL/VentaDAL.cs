@@ -28,6 +28,7 @@ namespace DAL
                     placa = v.placa,
                     observacion = v.observacion
                 });
+
                 return query.ToList();
             }
         }
