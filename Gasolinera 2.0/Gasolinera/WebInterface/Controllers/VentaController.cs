@@ -57,7 +57,7 @@ namespace WebInterface.Controllers
                     venta.producto,
                     venta.cantidad,
                     //venta.fecha.Date,
-                    new DateTime(),
+                    DateTime.Now,
                     venta.contribuyente,
                     venta.cliente,
                     venta.sede,

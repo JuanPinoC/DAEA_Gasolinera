@@ -33,6 +33,23 @@ namespace DAL
             }
         }
 
+        public List<CVenta> ListaModal()
+        {
+            using (context)
+            {
+                var query = context.Venta.Select(v => new CVenta
+                {
+                    codigo = v.codigo,
+                    producto = v.producto.Value,
+                    cantidad = (float)v.cantidad.Value,
+                    fecha = v.fecha.Value,
+                    cliente = v.cliente.Value,
+                    placa = v.placa
+                });
+                return query.ToList();
+            }
+        }
+
         public CVenta Get(int codigo)
         {
             var query = context.Venta.Select(v => new CVenta

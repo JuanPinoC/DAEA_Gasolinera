@@ -45,6 +45,11 @@ namespace BLL
             return ven.Listar();
         }
 
+        public List<CVenta> ListaModalBLL()
+        {
+            return ven.ListaModal();
+        }
+
         public CVenta GetBLL(int codigo)
         {
             return ven.Get(codigo);
