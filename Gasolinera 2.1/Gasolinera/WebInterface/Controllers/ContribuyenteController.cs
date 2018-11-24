@@ -30,7 +30,8 @@ namespace WebInterface.Controllers
 
         public ActionResult Listado()
         {
-            return View(GetListado());
+            return (can("listar", "Contribuyente")) ?
+                View(GetListado()) : Index();
         }
 
         public ActionResult Formulario(int codigo)
@@ -42,15 +43,18 @@ namespace WebInterface.Controllers
             else
             {
                 CContribuyente contribuyente = BLLinstance.GetBLL(codigo);
-
-                return View(contribuyente);
+                return (can("listar", "Contribuyente")) ?
+                    View(contribuyente) : Index();
             }
         }
 
         [HttpPost]
         public ActionResult Crear(CContribuyente contribuyente)
         {
-            int success = BLLinstance.AgregarBLL(
+
+            if (can("crear", "Contribuyente"))
+            {
+                int success = BLLinstance.AgregarBLL(
                 contribuyente.empresa,
                 contribuyente.ruc,
                 contribuyente.departamento,
@@ -61,13 +65,18 @@ namespace WebInterface.Controllers
                 contribuyente.impresora
                 );
 
-            return View("Listado", GetListado());
+                return View("Listado", GetListado());
+            }
+            else return Index();
         }
 
         [HttpPost]
         public ActionResult Editar(CContribuyente contribuyente)
         {
-            int success = BLLinstance.EditarBLL(
+            
+            if (can("editar", "Contribuyente"))
+            {
+                int success = BLLinstance.EditarBLL(
                 contribuyente.codigo,
                 contribuyente.empresa,
                 contribuyente.ruc,
@@ -79,14 +88,26 @@ namespace WebInterface.Controllers
                 contribuyente.impresora
                 );
 
-            return View("Listado", GetListado());
+                return View("Listado", GetListado());
+            }
+            else return Index();
         }
 
         public ActionResult Eliminar(int codigo)
         {
-            int success = BLLinstance.EliminarBLL(codigo);
-            List<CContribuyente> listado = BLLinstance.ListarBLL();
-            return View("Listado", GetListado());
+            if (can("eliminar", "Contribuyente"))
+            {
+                int success = BLLinstance.EliminarBLL(codigo);
+                return View("Listado", GetListado());
+            }
+            else return Index();
+        }
+
+        /* Session */
+
+        public bool can(string action, string table)
+        {
+            return (AccessMiddleware.can(Session["dni"].ToString(), action, table));
         }
     }
 }

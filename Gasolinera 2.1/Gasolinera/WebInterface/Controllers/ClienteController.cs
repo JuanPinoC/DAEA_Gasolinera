@@ -29,7 +29,8 @@ namespace WebInterface.Controllers
 
         public ActionResult Listado()
         {
-            return View(GetListado());
+            return (can("listar", "Cliente")) ?
+                View(GetListado()) : Index();
         }
 
         public ActionResult Formulario(int codigo)
@@ -41,41 +42,60 @@ namespace WebInterface.Controllers
             else
             {
                 CCliente cliente = BLLinstance.GetBLL(codigo);
-
-                return View(cliente);
+                return (can("listar", "Cliente")) ?
+                    View(cliente) : Index();
             }
         }
 
         [HttpPost]
         public ActionResult Crear(CCliente cliente)
         {
-            int success = BLLinstance.AgregarBLL(
+
+            if (can("crear", "Cliente"))
+            {
+                int success = BLLinstance.AgregarBLL(
                 cliente.tipo_doc,
                 cliente.documento,
                 cliente.nom_ape,
                 cliente.direccion);
 
-            return View("Listado", GetListado());
+                return View("Listado", GetListado());
+            }
+            else return Index();
         }
 
         [HttpPost]
         public ActionResult Editar(CCliente cliente)
         {
-            int success = BLLinstance.EditarBLL(
+            if (can("editar", "Cliente"))
+            {
+                int success = BLLinstance.EditarBLL(
                 cliente.codigo,
                 cliente.tipo_doc,
                 cliente.documento,
                 cliente.nom_ape,
                 cliente.direccion);
 
-            return View("Listado", GetListado());
+                return View("Listado", GetListado());
+            }
+            else return Index();
         }
 
         public ActionResult Eliminar(int codigo)
         {
-            int success = BLLinstance.EliminarBLL(codigo);
-            List<CCliente> listado = BLLinstance.ListarBLL();
-            return View("Listado", GetListado());
+            if (can("eliminar", "Cliente"))
+            {
+                int success = BLLinstance.EliminarBLL(codigo);
+                return View("Listado", GetListado());
+            }
+            else return Index();
+        }
+
+        /* Session */
+
+        public bool can(string action, string table)
+        {
+            return (AccessMiddleware.can(Session["dni"].ToString(), action, table));
         }
     }
 }

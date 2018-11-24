@@ -29,7 +29,8 @@ namespace WebInterface.Controllers
 
         public ActionResult Listado()
         {
-            return View(GetListado());
+            return (can("listar", "Boleta")) ?
+                View(GetListado()) : Index();
         }
 
         public ActionResult Formulario(int codigo)
@@ -41,39 +42,57 @@ namespace WebInterface.Controllers
             else
             {
                 CBoleta boleta = BLLinstance.GetBLL(codigo);
-
-                return View(boleta);
+                return (can("listar", "Boleta")) ?
+                    View(boleta) : Index();
             }
         }
 
         [HttpPost]
         public ActionResult Crear(CBoleta boleta)
         {
-            int success = BLLinstance.AgregarBLL(
+            if (can("crear", "Boleta"))
+            {
+                int success = BLLinstance.AgregarBLL(
                 boleta.venta,
                 boleta.dni,
                 boleta.total);
 
-            return View("Listado", GetListado());
+                return View("Listado", GetListado());
+            }
+            else return Index();
         }
 
         [HttpPost]
         public ActionResult Editar(CBoleta boleta)
         {
-            int success = BLLinstance.EditarBLL(
+            if (can("editar", "Boleta"))
+            {
+                int success = BLLinstance.EditarBLL(
                 boleta.codigo,
                 boleta.venta,
                 boleta.dni,
                 boleta.total);
 
-            return View("Listado", GetListado());
+                return View("Listado", GetListado());
+            }
+            else return Index();
         }
 
         public ActionResult Eliminar(int codigo)
         {
-            int success = BLLinstance.EliminarBLL(codigo);
-            List<CBoleta> listado = BLLinstance.ListarBLL();
-            return View("Listado", GetListado());
+            if (can("eliminar", "Boleta"))
+            {
+                int success = BLLinstance.EliminarBLL(codigo);
+                return View("Listado", GetListado());
+            }
+            else return Index();
+        }
+
+        /* Session */
+
+        public bool can(string action, string table)
+        {
+            return (AccessMiddleware.can(Session["dni"].ToString(), action, table));
         }
     }
 }

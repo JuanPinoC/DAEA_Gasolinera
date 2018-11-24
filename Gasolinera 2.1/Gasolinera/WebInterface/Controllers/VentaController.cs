@@ -30,7 +30,8 @@ namespace WebInterface.Controllers
 
         public ActionResult Listado()
         {
-            return View(GetListado());
+            return (can("listar", "Venta")) ?
+                View(GetListado()) : Index();
         }
 
         public ActionResult Formulario(int codigo)
@@ -43,40 +44,47 @@ namespace WebInterface.Controllers
             else
             {
                 CVenta venta = BLLinstance.GetBLL(codigo);
-                return View(venta);
+                return (can("listar", "Venta")) ?
+                    View(venta) : Index();
             }
         }
 
         [HttpPost]
         public ActionResult Crear(CVenta venta)
         {
-            try
+            if (can("crear", "Venta"))
             {
-                int success = BLLinstance.AgregarBLL(
-                    venta.usuario,
-                    venta.producto,
-                    venta.cantidad,
-                    //venta.fecha.Date,
-                    DateTime.Now,
-                    venta.contribuyente,
-                    venta.cliente,
-                    venta.sede,
-                    venta.placa,
-                    venta.observacion
-                );
-            }
-            catch (Exception e)
-            {
-                Console.Write(e);
-            }
+                try
+                {
+                    int success = BLLinstance.AgregarBLL(
+                        venta.usuario,
+                        venta.producto,
+                        venta.cantidad,
+                        //venta.fecha.Date,
+                        DateTime.Now,
+                        venta.contribuyente,
+                        venta.cliente,
+                        venta.sede,
+                        venta.placa,
+                        venta.observacion
+                    );
+                }
+                catch (Exception e)
+                {
+                    Console.Write(e);
+                }
 
-            return View("Listado", GetListado());
+                return View("Listado", GetListado());
+            }
+            else return Index();
         }
 
         [HttpPost]
         public ActionResult Editar(CVenta venta)
         {
-            int success = BLLinstance.EditarBLL(
+            if (can("editar", "Venta"))
+            {
+                int success = BLLinstance.EditarBLL(
                 venta.codigo,
                 venta.usuario,
                 venta.producto,
@@ -89,19 +97,31 @@ namespace WebInterface.Controllers
                 venta.observacion
                 );
 
-            return View("Listado", GetListado());
+                return View("Listado", GetListado());
+            }
+            else return Index();
         }
 
         public ActionResult Eliminar(int codigo)
         {
-            int success = BLLinstance.EliminarBLL(codigo);
-            List<CVenta> listado = BLLinstance.ListarBLL();
-            return View("Listado", GetListado());
+            if (can("eliminar", "Venta"))
+            {
+                int success = BLLinstance.EliminarBLL(codigo);
+                return View("Listado", GetListado());
+            }
+            else return Index();
         }
 
         public void UsuarioSeleccionado(int codigo)
         {
 
+        }
+
+        /* Session */
+
+        public bool can(string action, string table)
+        {
+            return (AccessMiddleware.can(Session["dni"].ToString(), action, table));
         }
     }
 }

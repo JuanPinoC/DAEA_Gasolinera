@@ -28,7 +28,8 @@ namespace WebInterface.Controllers
 
         public ActionResult Listado()
         {
-            return View(GetListado());
+            return (can("listar", "Factura")) ?
+                View(GetListado()) : Index();
         }
 
         public ActionResult Formulario(int codigo)
@@ -41,44 +42,63 @@ namespace WebInterface.Controllers
             {
                 CFactura factura = BLLinstance.GetBLL(codigo);
 
-                return View(factura);
+                return (can("listar", "Factura")) ?
+                    View(factura) : Index();
             }
         }
 
         [HttpPost]
         public ActionResult Crear(CFactura factura)
         {
-            int success = BLLinstance.AgregarBLL(
-                factura.venta,
-                factura.raz_soc,
-                factura.ruc,
-                factura.pretotal,
-                factura.igv,
-                factura.total);
+            if (can("crear", "Factura"))
+            {
+                int success = BLLinstance.AgregarBLL(
+                    factura.venta,
+                    factura.raz_soc,
+                    factura.ruc,
+                    factura.pretotal,
+                    factura.igv,
+                    factura.total);
 
-            return View("Listado", GetListado());
+                return View("Listado", GetListado());
+            }
+            else return Index();
         }
 
         [HttpPost]
         public ActionResult Editar(CFactura factura)
         {
-            int success = BLLinstance.EditarBLL(
-                factura.venta,
-                factura.codigo,
-                factura.raz_soc,
-                factura.ruc,
-                factura.pretotal,
-                factura.igv,
-                factura.total);
+            if (can("editar", "Factura"))
+            {
+                int success = BLLinstance.EditarBLL(
+                    factura.venta,
+                    factura.codigo,
+                    factura.raz_soc,
+                    factura.ruc,
+                    factura.pretotal,
+                    factura.igv,
+                    factura.total);
 
-            return View("Listado", GetListado());
+                return View("Listado", GetListado());
+            }
+            else return Index();
         }
 
         public ActionResult Eliminar(int codigo)
         {
-            int success = BLLinstance.EliminarBLL(codigo);
-            List<CFactura> listado = BLLinstance.ListarBLL();
-            return View("Listado", GetListado());
+            if (can("eliminar", "Factura"))
+            {
+                int success = BLLinstance.EliminarBLL(codigo);
+                return View("Listado", GetListado());
+            }
+            else return Index();
+        }
+
+        /* Session */
+
+        public bool can(string action, string table)
+        {
+            return (AccessMiddleware.can(Session["dni"].ToString(), action, table));
         }
     }
 }

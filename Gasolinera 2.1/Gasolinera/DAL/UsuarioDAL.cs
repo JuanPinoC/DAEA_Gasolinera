@@ -57,6 +57,36 @@ namespace DAL
             return query.First();
         }
 
+        public CUsuario GetByNickname(String nickname)
+        {
+            var query = context.Usuario.Select(u => new CUsuario
+            {
+                codigo = u.codigo,
+                dni = u.dni,
+                nom_ape = u.nom_ape,
+                tipo = u.tipo,
+                nickname = u.nickname,
+                password = u.password
+            }).Where(u => u.nickname == nickname);
+
+            return query.First();
+        }
+
+        public CUsuario GetByDNI(String dni)
+        {
+            var query = context.Usuario.Select(u => new CUsuario
+            {
+                codigo = u.codigo,
+                dni = u.dni,
+                nom_ape = u.nom_ape,
+                tipo = u.tipo,
+                nickname = u.nickname,
+                password = u.password
+            }).Where(u => u.dni == dni);
+
+            return query.First();
+        }
+
         public int Agregar(CUsuario usu)
         {
             context.insertUsuario(

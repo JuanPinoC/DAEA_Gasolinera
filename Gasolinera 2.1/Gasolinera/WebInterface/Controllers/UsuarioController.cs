@@ -28,12 +28,13 @@ namespace WebInterface.Controllers
 
         public ActionResult Listado()
         {
-            return View(GetListado());
+            return (can("listar", "Usuario")) ? 
+                View(GetListado()):Index();
         }
 
         public ActionResult Formulario(int codigo)
         {
-            if(codigo == 0)
+            if (codigo == 0)
             {
                 return View();
             }
@@ -41,27 +42,35 @@ namespace WebInterface.Controllers
             {
                 CUsuario usuario = BLLinstance.GetBLL(codigo);
 
-                return View(usuario);
+                return (can("listar", "Usuario")) ? 
+                    View(usuario):Index();
             }
         }
 
         [HttpPost]
         public ActionResult Crear(CUsuario usuario)
         {
-            int success = BLLinstance.AgregarBLL(
-                usuario.dni, 
-                usuario.nom_ape, 
-                usuario.nickname, 
-                usuario.password, 
+            if (can("crear", "Usuario"))
+            {
+                int success = BLLinstance.AgregarBLL(
+                usuario.dni,
+                usuario.nom_ape,
+                usuario.nickname,
+                usuario.password,
                 usuario.tipo);
 
-            return View("Listado",GetListado());
+                return View("Listado", GetListado());
+            }
+            else return Index();
+            
         }
 
         [HttpPost]
         public ActionResult Editar(CUsuario usuario)
         {
-            int success = BLLinstance.EditarBLL(
+            if (can("editar", "Usuario"))
+            {
+                int success = BLLinstance.EditarBLL(
                 usuario.codigo,
                 usuario.dni,
                 usuario.nom_ape,
@@ -69,14 +78,52 @@ namespace WebInterface.Controllers
                 usuario.password,
                 usuario.tipo);
 
-            return View("Listado",GetListado());
+                return View("Listado", GetListado());
+            }
+            else return Index();
+            
         }
 
         public ActionResult Eliminar(int codigo)
         {
-            int success = BLLinstance.EliminarBLL(codigo);
-            List<CUsuario> listado = BLLinstance.ListarBLL();
-            return View("Listado",GetListado());
+            if (can("eliminar", "Usuario"))
+            {
+                int success = BLLinstance.EliminarBLL(codigo);
+                return View("Listado", GetListado());
+            }
+            else return Index();
+        }
+
+        /* Session */
+
+        public ActionResult LogInForm()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult LogIn(String nickname, String password)
+        {
+            String success = BLLinstance.LogIn(nickname, password);
+            if(success.Substring(0,1) == "2")
+            {
+                Session["dni"] = success.Substring(1);
+                Session["tipo"] = "2";
+                // return AdminView();
+            }
+            if (success.Substring(0, 1) == "1")
+            {
+                Session["dni"] = success.Substring(1);
+                Session["tipo"] = "1";
+                // return EmployeeView();
+            }
+
+            return LogInForm();
+        }
+
+        public bool can(string action, string table)
+        {
+            return (AccessMiddleware.can(Session["dni"].ToString(), action, table));
         }
     }
 }

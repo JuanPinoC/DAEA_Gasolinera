@@ -1,4 +1,24 @@
-﻿Gasolinera
+﻿
+Gasolinera
+=========================================================================
+Entregable III
+
+Modificaciones en:
+
+DAL:
+- UsuarioDAL
+
+BLL:
+- UsuarioBLL
+- Encriptador
+- AccessMiddleware
+
+WebInterface:
+- Todos los controladores
+
+
+=========================================================================
+Entregable II
 
 Interfaces
 	Juan Pino:

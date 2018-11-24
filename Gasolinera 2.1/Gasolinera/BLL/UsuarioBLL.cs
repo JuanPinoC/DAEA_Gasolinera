@@ -33,11 +33,12 @@ namespace BLL
                                 String password,
                                 String tipo )
         {
+            
             CUsuario nuevo = new CUsuario{
                 dni = dni,
                 nom_ape = nom_ape,
                 nickname = nickname,
-                password = password,
+                password = Encriptador.GetHashString(password),
                 tipo = tipo
             };
             
@@ -57,7 +58,7 @@ namespace BLL
                 dni = dni,
                 nom_ape = nom_ape,
                 nickname = nickname,
-                password = password,
+                password = Encriptador.GetHashString(password),
                 tipo = tipo
             };
             
@@ -69,14 +70,22 @@ namespace BLL
             return usu.Eliminar(codigo);
         }
 
-        public bool LogIn()
-        {
-            return false;
-        }
+        /* Session */
 
-        public bool SignIn()
+        public String LogIn(String nickname, String password)
         {
-            return false;
+            CUsuario usuario = usu.GetByNickname(nickname);
+
+            if (usuario != null && usuario.password == Encriptador.GetHashString(password))
+            {
+                if (usuario.tipo == "ADMIN")
+                    return "2" + usuario.dni;
+                if (usuario.tipo == "EMPLOYEE")
+                    return "1" + usuario.dni;
+            }
+
+            return "0";
         }
+        
     }
 }

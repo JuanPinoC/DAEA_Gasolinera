@@ -40,9 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessMiddleware.cs" />
     <Compile Include="BoletaBLL.cs" />
     <Compile Include="ClienteBLL.cs" />
     <Compile Include="ContribuyenteBLL.cs" />
+    <Compile Include="Encriptador.cs" />
     <Compile Include="FacturaBLL.cs" />
     <Compile Include="ProductoBLL.cs" />
     <Compile Include="UsuarioBLL.cs" />

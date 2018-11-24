@@ -30,7 +30,8 @@ namespace WebInterface.Controllers
 
         public ActionResult Listado()
         {
-            return View(GetListado());
+            return (can("listar", "Producto")) ?
+                View(GetListado()) : Index();
         }
 
         public ActionResult Formulario(int codigo)
@@ -42,41 +43,61 @@ namespace WebInterface.Controllers
             else
             {
                 CProducto producto = BLLinstance.GetBLL(codigo);
-
-                return View(producto);
+                return (can("listar", "Producto")) ?
+                    View(producto) : Index();
             }
         }
 
         [HttpPost]
         public ActionResult Crear(CProducto producto)
         {
-            int success = BLLinstance.AgregarBLL(
+            if (can("crear", "Producto"))
+            {
+                int success = BLLinstance.AgregarBLL(
                 producto.nombre,
                 producto.precio,
                 producto.cantidad,
                 producto.medida);
 
-            return View("Listado", GetListado());
+                return View("Listado", GetListado());
+            }
+            else return Index();
         }
 
         [HttpPost]
         public ActionResult Editar(CProducto producto)
         {
-            int success = BLLinstance.EditarBLL(
+
+            if (can("editar", "Producto"))
+            {
+                int success = BLLinstance.EditarBLL(
                 producto.codigo,
                 producto.nombre,
                 producto.precio,
                 producto.cantidad,
                 producto.medida);
 
-            return View("Listado", GetListado());
+                return View("Listado", GetListado());
+            }
+            else return Index();
         }
 
         public ActionResult Eliminar(int codigo)
         {
-            int success = BLLinstance.EliminarBLL(codigo);
-            List<CProducto> listado = BLLinstance.ListarBLL();
-            return View("Listado", GetListado());
+            if (can("eliminar", "Producto"))
+            {
+                int success = BLLinstance.EliminarBLL(codigo);
+                return View("Listado", GetListado());
+            }
+            else return Index();
         }
+
+        /* Session */
+
+        public bool can(string action, string table)
+        {
+            return (AccessMiddleware.can(Session["dni"].ToString(), action, table));
+        }
+
     }
 }
