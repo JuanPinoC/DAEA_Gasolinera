@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entities;
 using DAL;
+using System.Diagnostics;
 
 namespace BLL
 {
@@ -75,6 +76,10 @@ namespace BLL
         public String LogIn(String nickname, String password)
         {
             CUsuario usuario = usu.GetByNickname(nickname);
+            Debug.WriteLine("BLL usuario tipo:" + usuario.tipo);
+            Debug.WriteLine("BLL usuario dni:" + usuario.dni);
+            Debug.WriteLine("BLL usuario clave: " + usuario.password);
+            Debug.WriteLine("BLL usuario clave unhash: " + Encriptador.GetHashString(password)); 
 
             if (usuario != null && usuario.password == Encriptador.GetHashString(password))
             {

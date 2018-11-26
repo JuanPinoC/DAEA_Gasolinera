@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using Entities;
 using DAL;
 using BLL;
+using System.Diagnostics;
 
 namespace WebInterface.Controllers
 {
@@ -109,29 +110,29 @@ namespace WebInterface.Controllers
         [HttpPost]
         public ActionResult LogIn(String nickname, String password)
         {
-            String success = BLLinstance.LogIn(nickname, password);
-            if(success.Substring(0,1) == "2")
+            string success = BLLinstance.LogIn(nickname, password);
+
+            Debug.WriteLine("Usuario: " + nickname);
+            Debug.WriteLine("Clave: " + password);
+
+            Debug.WriteLine("SUCCESS: " + success);
+            if (success.Substring(0,1) == "2")
             {
                 Session["dni"] = success.Substring(1);
                 Session["tipo"] = "2";
                 return View("Admin");
-                
             }
             if (success.Substring(0, 1) == "1")
             {
                 Session["dni"] = success.Substring(1);
                 Session["tipo"] = "1";
                 return View("Employee");
-
-
-                //return EmployeeView();
             }
 
-            // return LogInForm();
             return View("LogInForm");
         }
 
-        public bool can(string action, string table)
+        public bool can(String action, String table)
         {
             return (AccessMiddleware.can(Session["dni"].ToString(), action, table));
         }
