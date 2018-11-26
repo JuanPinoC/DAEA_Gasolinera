@@ -107,28 +107,28 @@ namespace WebInterface.Controllers
 
 
         [HttpPost]
-        public ActionResult Login(String nickname, String password)
+        public ActionResult LogIn(String nickname, String password)
         {
             String success = BLLinstance.LogIn(nickname, password);
             if(success.Substring(0,1) == "2")
             {
                 Session["dni"] = success.Substring(1);
                 Session["tipo"] = "2";
-                return Admin();
+                return View("Admin");
                 
             }
             if (success.Substring(0, 1) == "1")
             {
                 Session["dni"] = success.Substring(1);
                 Session["tipo"] = "1";
-                return Admin();
+                return View("Employee");
 
 
                 //return EmployeeView();
             }
 
-           // return LogInForm();
-            return Admin();
+            // return LogInForm();
+            return View("LogInForm");
         }
 
         public bool can(string action, string table)
