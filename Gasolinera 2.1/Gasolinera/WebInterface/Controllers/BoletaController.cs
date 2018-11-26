@@ -94,5 +94,6 @@ namespace WebInterface.Controllers
         {
             return (AccessMiddleware.can(Session["dni"].ToString(), action, table));
         }
+        
     }
 }

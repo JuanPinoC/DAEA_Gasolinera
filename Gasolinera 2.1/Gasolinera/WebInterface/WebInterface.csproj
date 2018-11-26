@@ -189,6 +189,7 @@
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\ContribuyenteController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\VentaController.cs" />
@@ -228,6 +229,11 @@
     <Content Include="Views\Factura\Formulario.cshtml" />
     <Content Include="Views\Factura\Index.cshtml" />
     <Content Include="Views\Shared\Layout2.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Estilos.cshtml" />
+    <Content Include="Views\Usuario\LogInForm.cshtml" />
+    <Content Include="Views\Usuario\Admin.cshtml" />
+    <Content Include="Views\Shared\Layout3.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

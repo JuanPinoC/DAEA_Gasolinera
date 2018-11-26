@@ -73,3 +73,18 @@ D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\DAEA_Gaso
 D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\DAL\obj\Debug\DAL.csproj.CopyComplete
 D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\DAL\obj\Debug\DAL.dll
 D:\Tecsup\Sexto Semestre\Desarrollo de Sistemas Empresariales\Proyecto\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\DAL\obj\Debug\DAL.pdb
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final Bueno\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\DAL\bin\Debug\DAL.dll.config
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final Bueno\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\DAL\bin\Debug\DAL.dll
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final Bueno\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\DAL\bin\Debug\DAL.pdb
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final Bueno\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\DAL\bin\Debug\Entities.dll
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final Bueno\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\DAL\bin\Debug\EntityFramework.dll
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final Bueno\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final Bueno\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\DAL\bin\Debug\Entities.pdb
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final Bueno\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\DAL\bin\Debug\Entities.dll.config
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final Bueno\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\DAL\bin\Debug\EntityFramework.xml
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final Bueno\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final Bueno\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final Bueno\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final Bueno\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\DAL\obj\Debug\DAL.csproj.CopyComplete
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final Bueno\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\DAL\obj\Debug\DAL.dll
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final Bueno\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\DAL\obj\Debug\DAL.pdb

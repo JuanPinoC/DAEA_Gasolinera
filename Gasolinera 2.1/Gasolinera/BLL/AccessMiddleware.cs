@@ -10,7 +10,7 @@ namespace BLL
 {
     public class AccessMiddleware
     {
-        IDictionary<string, Dictionary<string, bool>> admin = new Dictionary<string, Dictionary<string, bool>>()
+        public static IDictionary<string, Dictionary<string, bool>> admin = new Dictionary<string, Dictionary<string, bool>>()
             {
                 { "Contribuyente", new Dictionary<string, bool>(){ { "listar", true }, { "crear", true }, { "editar", true }, { "eliminar" , true} } },
                 { "Producto", new Dictionary<string, bool>(){ { "listar", true }, { "crear", true }, { "editar", true }, { "eliminar" , true} } },
@@ -21,7 +21,7 @@ namespace BLL
                 { "Usuario",  new Dictionary<string, bool>(){ { "listar", true }, { "crear", true }, { "editar", true }, { "eliminar" , true} } }
             };
 
-        IDictionary<string, Dictionary<string, bool>> employee = new Dictionary<string, Dictionary<string, bool>>()
+        public static IDictionary<string, Dictionary<string, bool>> employee = new Dictionary<string, Dictionary<string, bool>>()
             {
                 { "Contribuyente",  new Dictionary<string, bool>(){ { "listar", true }, { "crear", false }, { "editar", false }, { "eliminar" , false} } },
                 { "Producto",  new Dictionary<string, bool>(){ { "listar", true }, { "crear", true }, { "editar", true }, { "eliminar" , false} } },

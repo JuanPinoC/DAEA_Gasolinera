@@ -100,25 +100,35 @@ namespace WebInterface.Controllers
         {
             return View();
         }
+        public ActionResult Admin()
+        {
+            return View();
+        }
+
 
         [HttpPost]
-        public ActionResult LogIn(String nickname, String password)
+        public ActionResult Login(String nickname, String password)
         {
             String success = BLLinstance.LogIn(nickname, password);
             if(success.Substring(0,1) == "2")
             {
                 Session["dni"] = success.Substring(1);
                 Session["tipo"] = "2";
-                // return AdminView();
+                return Admin();
+                
             }
             if (success.Substring(0, 1) == "1")
             {
                 Session["dni"] = success.Substring(1);
                 Session["tipo"] = "1";
-                // return EmployeeView();
+                return Admin();
+
+
+                //return EmployeeView();
             }
 
-            return LogInForm();
+           // return LogInForm();
+            return Admin();
         }
 
         public bool can(string action, string table)

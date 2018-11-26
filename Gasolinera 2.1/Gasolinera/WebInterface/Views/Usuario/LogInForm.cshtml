@@ -1,0 +1,62 @@
+﻿@model Entities.CUsuario
+@{
+    ViewBag.Title = "LogInForm";
+    Layout = "~/Views/Shared/Estilos.cshtml";
+
+
+
+
+}
+@using (Html.BeginForm("Login", "Usuario", FormMethod.Post))
+{
+
+    <div id="page-wrapper">
+        <div class="main-page login-page ">
+            <h2 class="title1">Login</h2>
+            <div class="widget-shadow">
+                <div class="login-body">
+
+
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label>
+                                Username
+                            </label>
+                        </div>
+                        <div class="col-md-2">
+                            <label>
+                                @Html.TextBoxFor(model => model.nickname, new { style = "width=100%;" })
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label>
+                                Password
+                            </label>
+                        </div>
+                        <div class="col-md-2">
+                            <label>
+                                @Html.TextBoxFor(model => model.password, new { style = "width=100%;" })
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <input type="submit" value="Sign In">
+
+
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--footer-->
+    <div class="footer">
+        <p>&copy; 2018 - Sistema de Facturacion</p>
+    </div>
+    <!--//footer-->
+
+}
