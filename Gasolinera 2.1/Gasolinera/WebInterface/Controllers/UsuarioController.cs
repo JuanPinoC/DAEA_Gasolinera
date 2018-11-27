@@ -17,7 +17,14 @@ namespace WebInterface.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            if (Auth())
+            {
+                return View();
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
         }
 
         public List<CUsuario> GetListado()
@@ -31,22 +38,37 @@ namespace WebInterface.Controllers
 
         public ActionResult Listado()
         {
-            return (can("listar", "Usuario")) ? 
-                View(GetListado()):View("../Error/ErrorPerm");
+            if (Auth())
+            {
+                return (can("listar", "Usuario")) ?
+                View(GetListado()) : View("../Error/ErrorPerm");
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
+
         }
 
         public ActionResult Formulario(int codigo)
         {
-            if (codigo == 0)
+            if (Auth())
             {
-                return View();
+                if (codigo == 0)
+                {
+                    return View();
+                }
+                else
+                {
+                    CUsuario usuario = BLLinstance.GetBLL(codigo);
+
+                    return (can("listar", "Usuario")) ?
+                        View(usuario) : Index();
+                }
             }
             else
             {
-                CUsuario usuario = BLLinstance.GetBLL(codigo);
-
-                return (can("listar", "Usuario")) ? 
-                    View(usuario):Index();
+                return View("../Usuario/LogInForm");
             }
         }
 
@@ -105,12 +127,16 @@ namespace WebInterface.Controllers
         }
         public ActionResult Admin()
         {
-            return View();
+            if (Auth())
+            {
+                return View();
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
         }
-        public ActionResult ErrorPerm()
-        {
-            return View();
-        }
+       
 
 
         [HttpPost]
@@ -141,6 +167,17 @@ namespace WebInterface.Controllers
         public bool can(String action, String table)
         {
             return (AccessMiddleware.can(Session["dni"].ToString(), action, table));
+        }
+        public bool Auth()
+        {
+            if (Session["dni"] != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

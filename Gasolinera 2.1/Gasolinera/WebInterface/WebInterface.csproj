@@ -236,7 +236,6 @@
     <Content Include="Views\Usuario\Admin.cshtml" />
     <Content Include="Views\Shared\Layout3.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
-    <Content Include="Views\Error\ErrorAuth.cshtml" />
     <Content Include="Views\Error\ErrorPerm.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <None Include="Web.Debug.config">
