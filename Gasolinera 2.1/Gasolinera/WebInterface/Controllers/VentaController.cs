@@ -18,7 +18,14 @@ namespace WebInterface.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            if (Auth())
+            {
+                return View();
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
         }
 
         public List<CVenta> GetListado()
@@ -30,22 +37,36 @@ namespace WebInterface.Controllers
 
         public ActionResult Listado()
         {
-            return (can("listar", "Venta")) ?
-                View(GetListado()) : Index();
+            if (Auth())
+            {
+                return (can("listar", "Venta")) ?
+                    View(GetListado()) : View("../Error/ErrorPerm");
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
         }
 
         public ActionResult Formulario(int codigo)
         {
-            if (codigo == 0)
+            if (Auth())
             {
-                CVenta venta = new CVenta();
-                return View(venta);
+                if (codigo == 0)
+                {
+                    CVenta venta = new CVenta();
+                    return View(venta);
+                }
+                else
+                {
+                    CVenta venta = BLLinstance.GetBLL(codigo);
+                    return (can("listar", "Venta")) ?
+                        View(venta) : Index();
+                }
             }
             else
             {
-                CVenta venta = BLLinstance.GetBLL(codigo);
-                return (can("listar", "Venta")) ?
-                    View(venta) : Index();
+                return View("../Usuario/LogInForm");
             }
         }
 
@@ -122,6 +143,17 @@ namespace WebInterface.Controllers
         public bool can(string action, string table)
         {
             return (AccessMiddleware.can(Session["dni"].ToString(), action, table));
+        }
+        public bool Auth()
+        {
+            if (Session["dni"] != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

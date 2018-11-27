@@ -18,7 +18,14 @@ namespace WebInterface.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            if (Auth())
+            {
+                return View();
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
         }
 
         public List<CProducto> GetListado()
@@ -30,21 +37,35 @@ namespace WebInterface.Controllers
 
         public ActionResult Listado()
         {
-            return (can("listar", "Producto")) ?
-                View(GetListado()) : Index();
+            if (Auth())
+            {
+                return (can("listar", "Producto")) ?
+                    View(GetListado()) : View("../Error/ErrorPerm");
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
         }
 
         public ActionResult Formulario(int codigo)
         {
-            if (codigo == 0)
+            if (Auth())
             {
-                return View();
+                if (codigo == 0)
+                {
+                    return View();
+                }
+                else
+                {
+                    CProducto producto = BLLinstance.GetBLL(codigo);
+                    return (can("listar", "Producto")) ?
+                        View(producto) : Index();
+                }
             }
             else
             {
-                CProducto producto = BLLinstance.GetBLL(codigo);
-                return (can("listar", "Producto")) ?
-                    View(producto) : Index();
+                return View("../Usuario/LogInForm");
             }
         }
 
@@ -89,7 +110,7 @@ namespace WebInterface.Controllers
                 int success = BLLinstance.EliminarBLL(codigo);
                 return View("Listado", GetListado());
             }
-            else return Index();
+            else return View("Listado");
         }
 
         /* Session */
@@ -97,6 +118,17 @@ namespace WebInterface.Controllers
         public bool can(string action, string table)
         {
             return (AccessMiddleware.can(Session["dni"].ToString(), action, table));
+        }
+        public bool Auth()
+        {
+            if (Session["dni"] != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }

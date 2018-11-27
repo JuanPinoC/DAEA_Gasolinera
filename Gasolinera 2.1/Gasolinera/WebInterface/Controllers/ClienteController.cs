@@ -17,7 +17,14 @@ namespace WebInterface.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            if (Auth())
+            {
+                return View();
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
         }
 
         public List<CCliente> GetListado()
@@ -29,21 +36,35 @@ namespace WebInterface.Controllers
 
         public ActionResult Listado()
         {
-            return (can("listar", "Cliente")) ?
-                View(GetListado()) : Index();
+            if (Auth())
+            {
+                return (can("listar", "Cliente")) ?
+                    View(GetListado()) : View("../Error/ErrorPerm");
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
         }
 
         public ActionResult Formulario(int codigo)
         {
-            if (codigo == 0)
+            if (Auth())
             {
-                return View();
+                if (codigo == 0)
+                {
+                    return View();
+                }
+                else
+                {
+                    CCliente cliente = BLLinstance.GetBLL(codigo);
+                    return (can("listar", "Cliente")) ?
+                        View(cliente) : Index();
+                }
             }
             else
             {
-                CCliente cliente = BLLinstance.GetBLL(codigo);
-                return (can("listar", "Cliente")) ?
-                    View(cliente) : Index();
+                return View("../Usuario/LogInForm");
             }
         }
 
@@ -96,6 +117,17 @@ namespace WebInterface.Controllers
         public bool can(string action, string table)
         {
             return (AccessMiddleware.can(Session["dni"].ToString(), action, table));
+        }
+        public bool Auth()
+        {
+            if (Session["dni"] != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

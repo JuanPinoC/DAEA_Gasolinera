@@ -18,7 +18,14 @@ namespace WebInterface.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            if (Auth())
+            {
+                return View();
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
         }
 
         public List<CContribuyente> GetListado()
@@ -30,21 +37,35 @@ namespace WebInterface.Controllers
 
         public ActionResult Listado()
         {
-            return (can("listar", "Contribuyente")) ?
-                View(GetListado()) : Index();
+            if (Auth())
+            {
+                return (can("listar", "Contribuyente")) ?
+                    View(GetListado()) : View("../Error/ErrorPerm");
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
         }
 
         public ActionResult Formulario(int codigo)
         {
-            if (codigo == 0)
+            if (Auth())
             {
-                return View();
+                if (codigo == 0)
+                {
+                    return View();
+                }
+                else
+                {
+                    CContribuyente contribuyente = BLLinstance.GetBLL(codigo);
+                    return (can("listar", "Contribuyente")) ?
+                        View(contribuyente) : Index();
+                }
             }
             else
             {
-                CContribuyente contribuyente = BLLinstance.GetBLL(codigo);
-                return (can("listar", "Contribuyente")) ?
-                    View(contribuyente) : Index();
+                return View("../Usuario/LogInForm");
             }
         }
 
@@ -108,6 +129,17 @@ namespace WebInterface.Controllers
         public bool can(string action, string table)
         {
             return (AccessMiddleware.can(Session["dni"].ToString(), action, table));
+        }
+        public bool Auth()
+        {
+            if (Session["dni"] != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
