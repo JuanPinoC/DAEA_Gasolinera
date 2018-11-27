@@ -26,11 +26,13 @@ namespace WebInterface.Controllers
 
             return listado;
         }
+        
+       
 
         public ActionResult Listado()
         {
             return (can("listar", "Usuario")) ? 
-                View(GetListado()):Index();
+                View(GetListado()):View("../Error/ErrorPerm");
         }
 
         public ActionResult Formulario(int codigo)
@@ -105,6 +107,10 @@ namespace WebInterface.Controllers
         {
             return View();
         }
+        public ActionResult ErrorPerm()
+        {
+            return View();
+        }
 
 
         [HttpPost]
@@ -126,7 +132,7 @@ namespace WebInterface.Controllers
             {
                 Session["dni"] = success.Substring(1);
                 Session["tipo"] = "1";
-                return View("Employee");
+                return View("Admin");
             }
 
             return View("LogInForm");

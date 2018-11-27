@@ -3,29 +3,32 @@
     ViewBag.Title = "Listado";
     var grid = new WebGrid(source: Model);
 }
+<div class="panel-info widget-shadow">
+    <h2>Listado de Contribuyentes</h2>
+    <br />
 
-<h2>Listado de Contribuyentes</h2>
+    <h2>@Html.ActionLink("Crear", "Formulario", "Contribuyente", new { codigo = 0 }, null)</h2>
+    <br />
 
-<h2>@Html.ActionLink("Crear", "Formulario", "Contribuyente", new { codigo = 0 }, null)</h2>
-
-@grid.GetHtml(tableStyle: "table table-striped",
-columns: grid.Columns(
-      grid.Column(columnName: "codigo", header: "Código"),
-      grid.Column(columnName: "empresa", header: "Empresa"),
-      grid.Column(columnName: "ruc", header: "RUC"),
-      grid.Column(columnName: "departamento", header: "Departamento"),
-      grid.Column(columnName: "provincia", header: "Provincia"),
-      grid.Column(columnName: "distrito", header: "Distrito"),
-      grid.Column(columnName: "direccion", header: "Dirección"),
-      grid.Column(columnName: "igv", header: "IGV"),
-      grid.Column(columnName: "impresora", header: "Impresora"),
-      grid.Column(
-          header: "Acciones",
-          format:(item) => Html.ActionLink("Editar", "Formulario", "Contribuyente", new { codigo = item.codigo }, null)
-      ),
-      grid.Column(
-          header: "",
-          format: (item) => Html.ActionLink("Eliminar", "Eliminar", "Contribuyente", new { codigo = item.codigo }, null)
-      )
+    @grid.GetHtml(tableStyle: "table table-striped",
+    columns: grid.Columns(
+          grid.Column(columnName: "codigo", header: "Código"),
+          grid.Column(columnName: "empresa", header: "Empresa"),
+          grid.Column(columnName: "ruc", header: "RUC"),
+          grid.Column(columnName: "departamento", header: "Departamento"),
+          grid.Column(columnName: "provincia", header: "Provincia"),
+          grid.Column(columnName: "distrito", header: "Distrito"),
+          grid.Column(columnName: "direccion", header: "Dirección"),
+          grid.Column(columnName: "igv", header: "IGV"),
+          grid.Column(columnName: "impresora", header: "Impresora"),
+          grid.Column(
+              header: "Acciones",
+              format:(item) => Html.ActionLink("Editar", "Formulario", "Contribuyente", new { codigo = item.codigo }, null)
+          ),
+          grid.Column(
+              header: "",
+              format: (item) => Html.ActionLink("Eliminar", "Eliminar", "Contribuyente", new { codigo = item.codigo }, null)
+          )
+        )
     )
-)
+</div>

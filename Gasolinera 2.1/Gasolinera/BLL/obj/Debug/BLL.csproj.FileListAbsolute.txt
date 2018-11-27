@@ -88,3 +88,18 @@ E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final Bueno
 E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final Bueno\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\BLL\obj\Debug\BLL.csproj.CopyComplete
 E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final Bueno\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\BLL\obj\Debug\BLL.dll
 E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final Bueno\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\BLL\obj\Debug\BLL.pdb
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\BLL\bin\Debug\BLL.dll
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\BLL\bin\Debug\BLL.pdb
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\BLL\bin\Debug\DAL.dll
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\BLL\bin\Debug\Entities.dll
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\BLL\bin\Debug\EntityFramework.dll
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\BLL\bin\Debug\DAL.pdb
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\BLL\bin\Debug\DAL.dll.config
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\BLL\bin\Debug\Entities.pdb
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\BLL\bin\Debug\Entities.dll.config
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\BLL\bin\Debug\EntityFramework.xml
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\BLL\obj\Debug\BLL.csproj.CopyComplete
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\BLL\obj\Debug\BLL.dll
+E:\Tecsup\Desarrollo de palicaciones empresariales avanzado\Proyecto Final\DAEA_Gasolinera\Gasolinera 2.1\Gasolinera\BLL\obj\Debug\BLL.pdb

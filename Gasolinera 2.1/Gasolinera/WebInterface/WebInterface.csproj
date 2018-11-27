@@ -188,6 +188,7 @@
     <Compile Include="Controllers\BoletaController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\ContribuyenteController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductoController.cs" />
@@ -234,6 +235,10 @@
     <Content Include="Views\Usuario\LogInForm.cshtml" />
     <Content Include="Views\Usuario\Admin.cshtml" />
     <Content Include="Views\Shared\Layout3.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Error\ErrorAuth.cshtml" />
+    <Content Include="Views\Error\ErrorPerm.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
