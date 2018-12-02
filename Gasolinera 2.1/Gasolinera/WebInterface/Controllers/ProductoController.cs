@@ -27,6 +27,17 @@ namespace WebInterface.Controllers
                 return View("../Usuario/LogInForm");
             }
         }
+        public ActionResult IndexE()
+        {
+            if (Auth())
+            {
+                return View();
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
+        }
 
         public List<CProducto> GetListado()
         {
@@ -36,6 +47,18 @@ namespace WebInterface.Controllers
         }
 
         public ActionResult Listado()
+        {
+            if (Auth())
+            {
+                return (can("listar", "Producto")) ?
+                    View(GetListado()) : View("../Error/ErrorPerm");
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
+        }
+        public ActionResult ListadoE()
         {
             if (Auth())
             {
@@ -61,6 +84,26 @@ namespace WebInterface.Controllers
                     CProducto producto = BLLinstance.GetBLL(codigo);
                     return (can("listar", "Producto")) ?
                         View(producto) : Index();
+                }
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
+        }
+        public ActionResult FormularioE(int codigo)
+        {
+            if (Auth())
+            {
+                if (codigo == 0)
+                {
+                    return View();
+                }
+                else
+                {
+                    CProducto producto = BLLinstance.GetBLL(codigo);
+                    return (can("listar", "Producto")) ?
+                        View(producto) : IndexE();
                 }
             }
             else
@@ -101,6 +144,39 @@ namespace WebInterface.Controllers
                 return View("Listado", GetListado());
             }
             else return Index();
+        }
+        [HttpPost]
+        public ActionResult CrearE(CProducto producto)
+        {
+            if (can("crear", "Producto"))
+            {
+                int success = BLLinstance.AgregarBLL(
+                producto.nombre,
+                producto.precio,
+                producto.cantidad,
+                producto.medida);
+
+                return View("ListadoE", GetListado());
+            }
+            else return IndexE();
+        }
+
+        [HttpPost]
+        public ActionResult EditarE(CProducto producto)
+        {
+
+            if (can("editar", "Producto"))
+            {
+                int success = BLLinstance.EditarBLL(
+                producto.codigo,
+                producto.nombre,
+                producto.precio,
+                producto.cantidad,
+                producto.medida);
+
+                return View("ListadoE", GetListado());
+            }
+            else return IndexE();
         }
 
         public ActionResult Eliminar(int codigo)

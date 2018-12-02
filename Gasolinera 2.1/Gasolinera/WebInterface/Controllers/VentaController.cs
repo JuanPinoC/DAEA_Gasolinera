@@ -27,6 +27,17 @@ namespace WebInterface.Controllers
                 return View("../Usuario/LogInForm");
             }
         }
+        public ActionResult IndexE()
+        {
+            if (Auth())
+            {
+                return View();
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
+        }
 
         public List<CVenta> GetListado()
         {
@@ -47,8 +58,41 @@ namespace WebInterface.Controllers
                 return View("../Usuario/LogInForm");
             }
         }
+        public ActionResult ListadoE()
+        {
+            if (Auth())
+            {
+                return (can("listar", "Venta")) ?
+                    View(GetListado()) : View("../Error/ErrorPerm");
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
+        }
 
         public ActionResult Formulario(int codigo)
+        {
+            if (Auth())
+            {
+                if (codigo == 0)
+                {
+                    CVenta venta = new CVenta();
+                    return View(venta);
+                }
+                else
+                {
+                    CVenta venta = BLLinstance.GetBLL(codigo);
+                    return (can("listar", "Venta")) ?
+                        View(venta) : Index();
+                }
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
+        }
+        public ActionResult FormularioE(int codigo)
         {
             if (Auth())
             {
@@ -98,6 +142,35 @@ namespace WebInterface.Controllers
                 return View("Listado", GetListado());
             }
             else return Index();
+        }
+        [HttpPost]
+        public ActionResult CrearE(CVenta venta)
+        {
+            if (can("crear", "Venta"))
+            {
+                try
+                {
+                    int success = BLLinstance.AgregarBLL(
+                        venta.usuario,
+                        venta.producto,
+                        venta.cantidad,
+                        //venta.fecha.Date,
+                        DateTime.Now,
+                        venta.contribuyente,
+                        venta.cliente,
+                        venta.sede,
+                        venta.placa,
+                        venta.observacion
+                    );
+                }
+                catch (Exception e)
+                {
+                    Console.Write(e);
+                }
+
+                return View("ListadoE", GetListado());
+            }
+            else return IndexE();
         }
 
         [HttpPost]

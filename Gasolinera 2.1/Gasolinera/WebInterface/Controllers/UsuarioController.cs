@@ -34,6 +34,7 @@ namespace WebInterface.Controllers
             return listado;
         }
         
+        
        
 
         public ActionResult Listado()
@@ -129,15 +130,20 @@ namespace WebInterface.Controllers
         {
             if (Auth())
             {
-                return View();
+                return View("../Home/Index");
             }
             else
             {
                 return View("../Usuario/LogInForm");
             }
         }
-       
 
+        public String ErrorAuth()
+        {
+            String error = "Sus credenciales no son correctas, vuelva a intentarlo";
+
+            return error;
+        }
 
         [HttpPost]
         public ActionResult LogIn(String nickname, String password)
@@ -152,15 +158,16 @@ namespace WebInterface.Controllers
             {
                 Session["dni"] = success.Substring(1);
                 Session["tipo"] = "2";
-                return View("Admin");
+                return View("../Home/Index");
             }
             if (success.Substring(0, 1) == "1")
             {
                 Session["dni"] = success.Substring(1);
                 Session["tipo"] = "1";
-                return View("Admin");
+                return View("../Home/IndexE");
             }
 
+            ViewBag.error = "Su credenciales son incorrectas, intentelo de nuevo";
             return View("LogInForm");
         }
 

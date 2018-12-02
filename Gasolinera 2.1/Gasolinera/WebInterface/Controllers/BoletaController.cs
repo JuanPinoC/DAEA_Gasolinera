@@ -26,6 +26,17 @@ namespace WebInterface.Controllers
                 return View("../Usuario/LogInForm");
             }
         }
+        public ActionResult IndexE()
+        {
+            if (Auth())
+            {
+                return View();
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
+        }
 
         public List<CBoleta> GetListado()
         {
@@ -46,8 +57,41 @@ namespace WebInterface.Controllers
                 return View("../Usuario/LogInForm");
             }
         }
+        public ActionResult ListadoE()
+        {
+            if (Auth())
+            {
+                return (can("listar", "Boleta")) ?
+                    View(GetListado()) : View("../Error/ErrorPerm");
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
+        }
 
         public ActionResult Formulario(int codigo)
+        {
+            if (Auth())
+            {
+                if (codigo == 0)
+                {
+                    return View();
+                }
+                else
+                {
+                    CBoleta boleta = BLLinstance.GetBLL(codigo);
+                    return (can("listar", "Boleta")) ?
+                        View(boleta) : Index();
+                }
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
+
+        }
+        public ActionResult FormularioE(int codigo)
         {
             if (Auth())
             {
@@ -82,6 +126,20 @@ namespace WebInterface.Controllers
                 return View("Listado", GetListado());
             }
             else return Index();
+        }
+        [HttpPost]
+        public ActionResult CrearE(CBoleta boleta)
+        {
+            if (can("crear", "Boleta"))
+            {
+                int success = BLLinstance.AgregarBLL(
+                boleta.venta,
+                boleta.dni,
+                boleta.total);
+
+                return View("ListadoE", GetListado());
+            }
+            else return IndexE();
         }
 
         [HttpPost]

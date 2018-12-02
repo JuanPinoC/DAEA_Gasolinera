@@ -1,12 +1,19 @@
 ﻿@model Entities.CUsuario
+
 @{
     ViewBag.Title = "LogInForm";
     Layout = "~/Views/Shared/Estilos.cshtml";
+   
+    
+
 
 
 
 
 }
+
+
+
 @using (Html.BeginForm("LogIn", "Usuario", FormMethod.Post))
 {
 
@@ -16,38 +23,33 @@
             <div class="widget-shadow">
                 <div class="login-body">
 
+                    @if (@ViewBag.error != null)
+                    {
+
+                        <div class="panel panel-danger">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Error</h3>
+                            </div>
+                            <div class="panel-body">
+                                @ViewBag.error
+                            </div>
+                        </div>
+                    }
 
 
-                    <div class="row">
-                        <div class="col-md-2">
-                            <label>
-                                Username
-                            </label>
-                        </div>
-                        <div class="col-md-2">
-                            <label>
-                                @Html.TextBoxFor(model => model.nickname, new { style = "width=100%;" })
-                            </label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2">
-                            <label>
-                                Password
-                            </label>
-                        </div>
-                        <div class="col-md-2">
-                            <label>
-                                @Html.TextBoxFor(model => model.password, new { style = "width=100%;" })
-                            </label>
-                        </div>
-                    </div>
+
+                    @Html.TextBoxFor(model => model.nickname, new { @placeholder = "Ingrese su Username", Type = "text" })
+
+
+                    @Html.TextBoxFor(model => model.password, new { @placeholder = "Ingrese su contraseña", Type = "password" })
+
+
 
 
                     <input type="submit" value="Sign In">
 
 
-                    
+
                 </div>
             </div>
 

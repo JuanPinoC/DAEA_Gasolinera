@@ -27,6 +27,17 @@ namespace WebInterface.Controllers
                 return View("../Usuario/LogInForm");
             }
         }
+        public ActionResult IndexE()
+        {
+            if (Auth())
+            {
+                return View();
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
+        }
 
         public List<CContribuyente> GetListado()
         {
@@ -36,6 +47,18 @@ namespace WebInterface.Controllers
         }
 
         public ActionResult Listado()
+        {
+            if (Auth())
+            {
+                return (can("listar", "Contribuyente")) ?
+                    View(GetListado()) : View("../Error/ErrorPerm");
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
+        }
+        public ActionResult ListadoE()
         {
             if (Auth())
             {

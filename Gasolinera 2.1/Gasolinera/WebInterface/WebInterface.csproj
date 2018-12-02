@@ -238,6 +238,24 @@
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Error\ErrorPerm.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Home\IndexE.cshtml" />
+    <Content Include="Views\Boleta\ListadoE.cshtml" />
+    <Content Include="Views\Boleta\FormularioE.cshtml" />
+    <Content Include="Views\Boleta\IndexE.cshtml" />
+    <Content Include="Views\Cliente\IndexE.cshtml" />
+    <Content Include="Views\Cliente\ListadoE.cshtml" />
+    <Content Include="Views\Cliente\FormularioE.cshtml" />
+    <Content Include="Views\Contribuyente\IndexE.cshtml" />
+    <Content Include="Views\Contribuyente\ListadoE.cshtml" />
+    <Content Include="Views\Factura\IndexE.cshtml" />
+    <Content Include="Views\Factura\ListadoE.cshtml" />
+    <Content Include="Views\Factura\FormularioE.cshtml" />
+    <Content Include="Views\Producto\IndexE.cshtml" />
+    <Content Include="Views\Producto\ListadoE.cshtml" />
+    <Content Include="Views\Producto\FormularioE.cshtml" />
+    <Content Include="Views\Venta\IndexE.cshtml" />
+    <Content Include="Views\Venta\ListadoE.cshtml" />
+    <Content Include="Views\Venta\FormularioE.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

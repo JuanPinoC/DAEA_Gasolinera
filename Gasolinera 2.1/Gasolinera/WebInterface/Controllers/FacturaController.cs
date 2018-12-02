@@ -25,6 +25,17 @@ namespace WebInterface.Controllers
                 return View("../Usuario/LogInForm");
             }
         }
+        public ActionResult IndexE()
+        {
+            if (Auth())
+            {
+                return View();
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
+        }
 
         public List<CFactura> GetListado()
         {
@@ -45,8 +56,41 @@ namespace WebInterface.Controllers
                 return View("../Usuario/LogInForm");
             }
         }
+        public ActionResult ListadoE()
+        {
+            if (Auth())
+            {
+                return (can("listar", "Factura")) ?
+                    View(GetListado()) : View("../Error/ErrorPerm");
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
+        }
 
         public ActionResult Formulario(int codigo)
+        {
+            if (Auth())
+            {
+                if (codigo == 0)
+                {
+                    return View();
+                }
+                else
+                {
+                    CFactura factura = BLLinstance.GetBLL(codigo);
+
+                    return (can("listar", "Factura")) ?
+                        View(factura) : Index();
+                }
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
+        }
+        public ActionResult FormularioE(int codigo)
         {
             if (Auth())
             {
@@ -84,6 +128,23 @@ namespace WebInterface.Controllers
                 return View("Listado", GetListado());
             }
             else return Index();
+        }
+        [HttpPost]
+        public ActionResult CrearE(CFactura factura)
+        {
+            if (can("crear", "Factura"))
+            {
+                int success = BLLinstance.AgregarBLL(
+                    factura.venta,
+                    factura.raz_soc,
+                    factura.ruc,
+                    factura.pretotal,
+                    factura.igv,
+                    factura.total);
+
+                return View("ListadoE", GetListado());
+            }
+            else return IndexE();
         }
 
         [HttpPost]

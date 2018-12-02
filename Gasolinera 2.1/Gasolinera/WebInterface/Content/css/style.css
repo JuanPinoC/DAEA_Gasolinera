@@ -1720,7 +1720,7 @@ form.search-form {
 .login-top  h4  a:hover{
     color: #555;
 }
-.login-page input[type="email"], .login-page input[type="password"] {
+.login-page input[type="text"], .login-page input[type="password"] {
     font-size: 1em;
     padding: 14px 15px 14px 37px;
     width: 100%;
@@ -1730,11 +1730,11 @@ form.search-form {
     background: #FFFFFF;
     margin: 0em 0em 1.5em 0em;
 }
-.login-page input.user {
-    background: url(../images/user.png)no-repeat 8px 16px #fff;
+.login-page input.user[type="text"] {
+    background: url(~/images/user.png)no-repeat 8px 16px #fff;
 }
-.login-page input.lock {
-    background: url(../images/lock.png)no-repeat 8px 16px #fff;
+.login-page input.lock[type="password"] {
+    background: url(~/images/lock.png)no-repeat 8px 16px #fff;
 }
 .login-page label.checkbox {
     margin: 0 0 0 1.3em;

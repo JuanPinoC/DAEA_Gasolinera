@@ -11,7 +11,36 @@ namespace WebInterface.Controllers
         // GET: Home
         public  ActionResult Index()
         {
-            return View();
+            if (Auth())
+            {
+                return View();
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
+        }
+        public ActionResult IndexE()
+        {
+            if (Auth())
+            {
+                return View();
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
+        }
+        public bool Auth()
+        {
+            if (Session["dni"] != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
