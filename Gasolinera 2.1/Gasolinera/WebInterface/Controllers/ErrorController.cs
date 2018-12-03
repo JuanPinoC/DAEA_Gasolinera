@@ -19,11 +19,29 @@ namespace WebInterface.Controllers
         }
         public ActionResult ErrorPerm()
         {
-            return View();
+            if (Auth())
+            {
+                return View();
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
         }
         public ActionResult NotFound()
         {
             return View();
+        }
+        public bool Auth()
+        {
+            if (Session["dni"] != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

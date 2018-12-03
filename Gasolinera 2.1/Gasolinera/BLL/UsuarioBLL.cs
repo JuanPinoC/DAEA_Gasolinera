@@ -91,6 +91,10 @@ namespace BLL
 
             return "0";
         }
+        public String LogOut()
+        {
+            return "0";
+        }
         
     }
 }

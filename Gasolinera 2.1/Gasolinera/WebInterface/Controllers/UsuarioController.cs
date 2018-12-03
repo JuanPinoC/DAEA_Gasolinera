@@ -186,5 +186,10 @@ namespace WebInterface.Controllers
                 return false;
             }
         }
+        public ActionResult LogOut()
+        {
+            Session["dni"] = null;
+            return View("LogInForm");
+        }
     }
 }
