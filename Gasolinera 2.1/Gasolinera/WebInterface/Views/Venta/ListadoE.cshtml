@@ -21,9 +21,18 @@
           grid.Column(columnName: "cliente", header: "Cliente"),
           grid.Column(columnName: "sede", header: "Sede"),
           grid.Column(columnName: "placa", header: "Placa"),
-          grid.Column(columnName: "observacion", header: "Observación")
-          
+          grid.Column(columnName: "observacion", header: "Observación"),
+          grid.Column(
+              header: "Generar",
+              format: (item) => Html.ActionLink("Factura", "recibVenE", "Factura", new { codigo = item.codigo }, null)
+          ),
+          grid.Column(
+              header: "",
+              format: (item) => Html.ActionLink("Boleta", "recibVenE", "Boleta", new { codigo = item.codigo }, null)
+          )
+
         )
+
     )
 
 </div>

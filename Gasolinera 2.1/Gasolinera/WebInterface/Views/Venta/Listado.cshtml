@@ -27,7 +27,16 @@
           grid.Column(
               header: "",
               format: (item) => Html.ActionLink("Eliminar", "Eliminar", "Venta", new { codigo = item.codigo }, null)
+          ),
+          grid.Column(
+              header: "Generar",
+              format: (item) => Html.ActionLink("Factura", "recibVen", "Factura", new { codigo = item.codigo }, null)
+          ),
+          grid.Column(
+              header: "",
+              format: (item) => Html.ActionLink("Boleta", "recibVen", "Boleta", new { codigo = item.codigo }, null)
           )
+
         )
     )
 

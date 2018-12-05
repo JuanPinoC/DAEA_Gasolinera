@@ -63,21 +63,22 @@
         @Html.HiddenFor(model => model.contribuyente, conSelec.codigo)
         @Html.HiddenFor(model => model.cliente, cliSelec.codigo)
         @Html.HiddenFor(model => model.fecha, new DateTime())
-        <div class="row">
-            <div class="col-md-2">
-                <label>
-                    Usuario
-                </label>
-            </div>
-            <div class="col-md-6">
-                <label>
-                    @usuSelec.nom_ape
-                </label>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalUsuario">
-                    Ver Usuarios
-                </button>
-            </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label>
+                Usuario
+            </label>
         </div>
+        <div class="col-md-6">
+            <label>
+                @usuSelec.nom_ape
+            </label>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalUsuario">
+                Ver Usuarios
+            </button>
+        </div>
+        
+    </div>
         <div class="row">
             <div class="col-md-2">
                 <label>

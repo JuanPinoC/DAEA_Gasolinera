@@ -28,6 +28,10 @@
     @using (Html.BeginForm((tipoFormulario.Equals("Crear")) ? "Crear" : "Editar", "Boleta", FormMethod.Post))
     {
         @Html.HiddenFor(model => model.codigo)
+        if (ViewBag.codigoven != null)
+        {
+            venSelec.codigo = ViewBag.codigoven;
+        }
         @Html.HiddenFor(model => model.venta, venSelec.codigo)
 
         <div class="row">

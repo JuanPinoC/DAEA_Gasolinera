@@ -28,6 +28,11 @@
     @using (Html.BeginForm((tipoFormulario.Equals("Crear")) ? "Crear" : "Editar", "Factura", FormMethod.Post))
     {
         @Html.HiddenFor(model => model.codigo)
+
+        if (ViewBag.codigoven != null) {
+            venSelec.codigo = ViewBag.codigoven;
+        }
+
         @Html.HiddenFor(model => model.venta, venSelec.codigo)
 
         <div class="row">
@@ -38,6 +43,7 @@
             </div>
             <div class="col-md-2">
                 <label>
+                   
                     @venSelec.codigo
                 </label>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalVenta">

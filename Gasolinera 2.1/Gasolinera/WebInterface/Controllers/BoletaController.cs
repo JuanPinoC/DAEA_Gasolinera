@@ -127,6 +127,30 @@ namespace WebInterface.Controllers
             }
             else return Index();
         }
+        public ActionResult recibVen(int codigo)
+        {
+            if (Auth())
+            {
+                ViewBag.codigoven = codigo;
+                return View("Formulario");
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
+        }
+        public ActionResult recibVenE(int codigo)
+        {
+            if (Auth())
+            {
+                ViewBag.codigoven = codigo;
+                return View("FormularioE");
+            }
+            else
+            {
+                return View("../Usuario/LogInForm");
+            }
+        }
         [HttpPost]
         public ActionResult CrearE(CBoleta boleta)
         {
