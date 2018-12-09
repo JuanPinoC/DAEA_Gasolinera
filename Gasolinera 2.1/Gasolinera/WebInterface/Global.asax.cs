@@ -38,7 +38,7 @@ namespace WebInterface
                     break;
 
                 default:
-                   Response.Redirect(String.Format("~/Error/Index"));
+                   
                     break;
             }
             

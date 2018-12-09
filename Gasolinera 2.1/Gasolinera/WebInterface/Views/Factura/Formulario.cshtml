@@ -16,8 +16,13 @@
 
     if (gridVentas.HasSelection)
     {
+        //venSelec = gridVentas.SelectedRow.Value as Entities.CVenta;
         venSelec = gridVentas.SelectedRow.Value as Entities.CVenta;
         Model.venta = venSelec.codigo;
+    }
+    else
+    {
+        Model.venta = 4;
     }
 
 }
@@ -29,9 +34,7 @@
     {
         @Html.HiddenFor(model => model.codigo)
 
-        if (ViewBag.codigoven != null) {
-            venSelec.codigo = ViewBag.codigoven;
-        }
+        
 
         @Html.HiddenFor(model => model.venta, venSelec.codigo)
 

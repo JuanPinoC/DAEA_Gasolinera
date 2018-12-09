@@ -26,10 +26,7 @@
 
     @using (Html.BeginForm((tipoFormulario.Equals("CrearE")) ? "CrearE" : "EditarE", "Factura", FormMethod.Post))
     {
-        if (ViewBag.codigoven != null)
-        {
-            venSelec.codigo = ViewBag.codigoven;
-        }
+        
         @Html.HiddenFor(model => model.codigo)
         @Html.HiddenFor(model => model.venta, venSelec.codigo)
 

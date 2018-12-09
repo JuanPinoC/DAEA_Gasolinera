@@ -206,10 +206,7 @@ namespace WebInterface.Controllers
             else return Index();
         }
 
-        public void UsuarioSeleccionado(int codigo)
-        {
-
-        }
+        
 
         /* Session */
 
